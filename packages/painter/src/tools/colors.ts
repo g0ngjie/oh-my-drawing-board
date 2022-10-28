@@ -40,6 +40,7 @@ export default function (ctx: CanvasRenderingContext2D) {
             prev.style.removeProperty('width')
             prev.style.removeProperty('height')
             const selected = e.target;
+
             selected.classList.add("selected");
             selected.style.width = '25px';
             selected.style.height = '25px';
