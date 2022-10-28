@@ -9,16 +9,11 @@
 .container > li {
   width: 20px;
   height: 20px;
-  border-radius: 20%;
+  border-radius: 7px;
   list-style: none;
   margin-right: 4px;
 }
 
 .container > li:hover {
   cursor: pointer;
-}
-
-.container > li.selected {
-  width: 30px;
-  height: 30px;
 }
