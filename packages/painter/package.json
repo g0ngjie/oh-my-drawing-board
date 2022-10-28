@@ -1,0 +1,23 @@
+{
+  "name": "@drawing/painter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "lib",
+    "types"
+  ],
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "rimraf lib types && tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.11.7",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.4"
+  }
+}
