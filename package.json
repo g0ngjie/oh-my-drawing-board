@@ -8,7 +8,7 @@
     "watch:lib": "pnpm -C ./packages/painter watch",
     "build": "run-s build:all page",
     "build:all": "pnpm -F \"./packages/**\" run build",
-    "page": "rimraf page && cp -r ./packages/website/dist page"
+    "page": "rimraf pages && cp -r ./packages/website/dist pages"
   },
   "keywords": [],
   "author": "",
