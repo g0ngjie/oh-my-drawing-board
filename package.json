@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "website": "pnpm -C ./packages/website dev",
     "watch:lib": "pnpm -C ./packages/painter watch",
     "build": "pnpm -F \"./packages/**\" run build"
   },
