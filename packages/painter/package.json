@@ -2,22 +2,27 @@
   "name": "@drawing/painter",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/index.js",
+  "main": "lib/index.umd.js",
+  "module": "lib/index.esm.js",
   "types": "types/index.d.ts",
   "files": [
     "lib",
     "types"
   ],
   "scripts": {
-    "watch": "tsc -w",
-    "build": "rimraf lib types && tsc"
+    "watch": "run-p watch:ts watch:vite",
+    "build": "rimraf lib types && tsc && vite build",
+    "watch:ts": "tsc --watch",
+    "watch:vite": "vite build --watch"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.11.7",
+    "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "vite": "^3.2.0"
   }
 }

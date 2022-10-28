@@ -1,0 +1,24 @@
+.container {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.container > li {
+  width: 20px;
+  height: 20px;
+  border-radius: 20%;
+  list-style: none;
+  margin-right: 4px;
+}
+
+.container > li:hover {
+  cursor: pointer;
+}
+
+.container > li.selected {
+  width: 30px;
+  height: 30px;
+}
