@@ -24,7 +24,10 @@ export default function (ctx: CanvasRenderingContext2D) {
     for (let i = 0; i < colorArray.length; i++) {
         const li = document.createElement("li");
 
-        if (i === 0) li.classList.add("selected");
+        if (i === 0) {
+            li.classList.add("selected");
+            li.style.cssText = `width: 25px; height: 25px;`
+        }
         li.style.background = colorArray[i];
         colorContainer.appendChild(li);
     }
@@ -34,8 +37,12 @@ export default function (ctx: CanvasRenderingContext2D) {
         if (e.target instanceof HTMLLIElement) {
             const prev = colorContainer.querySelector('li.selected') as HTMLLIElement
             prev.classList.remove("selected");
+            prev.style.removeProperty('width')
+            prev.style.removeProperty('height')
             const selected = e.target;
             selected.classList.add("selected");
+            selected.style.width = '25px';
+            selected.style.height = '25px';
             ctx.strokeStyle = selected.style.background;
         }
     }
