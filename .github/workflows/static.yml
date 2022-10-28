@@ -48,18 +48,18 @@ jobs:
           pnpm install
           pnpm run build
 
-      - name: Deploy
-        # 将构建产物 commit 到一个分支上，用于发布静态站点资源
-        # https://github.com/peaceiris/actions-gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          # Github 会在 workflow 中自动生成 GIHUBT_TOKEN，用于认证 workflow 的运行
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # 静态资源目录设置
-          publish_dir: ./pages
-          # 默认发布到 github-pages 分支上，可以指定特定的发布分支（不能选拉取代码的分支）
-          publish_branch: github-pages
-          full_commit_message: ${{ github.event.head_commit.message }}
+      # - name: Deploy
+      #   # 将构建产物 commit 到一个分支上，用于发布静态站点资源
+      #   # https://github.com/peaceiris/actions-gh-pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     # Github 会在 workflow 中自动生成 GIHUBT_TOKEN，用于认证 workflow 的运行
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     # 静态资源目录设置
+      #     publish_dir: ./pages
+      #     # 默认发布到 gh-pages 分支上，可以指定特定的发布分支（不能选拉取代码的分支）
+      #     publish_branch: gh-pages
+      #     full_commit_message: ${{ github.event.head_commit.message }}
 
       # - name: Setup Pages
       #   uses: actions/configure-pages@v2
@@ -71,3 +71,11 @@ jobs:
       # - name: Deploy to GitHub Pages
       #   id: deployment
       #   uses: actions/deploy-pages@v1
+
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          # 发布到指定分支
+          BRANCH: gh-pages
+          # 构建成果所在目录,默认位置都是在根目录
+          FOLDER: ./docs/.vuepress/dist
