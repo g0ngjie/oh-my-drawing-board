@@ -2,6 +2,9 @@ lockfileVersion: 5.4
 
 importers:
 
+  .:
+    specifiers: {}
+
   packages/painter:
     specifiers:
       '@types/node': ^18.11.7

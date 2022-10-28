@@ -1,33 +1,28 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ESNext",
     "useDefineForClassFields": true,
-    "module": "esnext",
+    "module": "ESNext",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "moduleResolution": "Node",
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
     "strict": true,
-    "jsx": "preserve",
-    "sourceMap": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
     "skipLibCheck": true,
     "declaration": true,
     "declarationDir": "types",
     "outDir": "types",
-    "emitDeclarationOnly": true,
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+    "src"
   ]
 }
