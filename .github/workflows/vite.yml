@@ -2,9 +2,9 @@ name: NodeJS with Vite
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
   build:
@@ -14,23 +14,23 @@ jobs:
       matrix:
         pnpm:
           - 7.14.0
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup pnpm
-      # You may pin to the exact commit or the version.
-      # uses: pnpm/action-setup@c3b53f6a16e57305370b4ae5a540c2077a1d50dd
-      uses: pnpm/action-setup@v2.2.4
-      with:
-        # Version of pnpm to install
-        version: 7.14.0 # optional
-        # Where to store pnpm files
-        # dest: # optional, default is ~/setup-pnpm
-        # If specified, run `pnpm install`
-        # run_install: # optional, default is null
 
-    - name: Build
-      run: |
-        pnpm install
-        pnpm run build
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup pnpm
+        # You may pin to the exact commit or the version.
+        # uses: pnpm/action-setup@c3b53f6a16e57305370b4ae5a540c2077a1d50dd
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          # Version of pnpm to install
+          version: 7.14.0 # optional
+          # Where to store pnpm files
+          # dest: # optional, default is ~/setup-pnpm
+          # If specified, run `pnpm install`
+          # run_install: # optional, default is null
+
+      - name: Build
+        run: |
+          pnpm install
+          pnpm run build
