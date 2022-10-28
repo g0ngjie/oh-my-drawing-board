@@ -48,13 +48,26 @@ jobs:
           pnpm install
           pnpm run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy
+        # 将构建产物 commit 到一个分支上，用于发布静态站点资源
+        # https://github.com/peaceiris/actions-gh-pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          # Upload entire repository
-          path: "./pages"
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          # Github 会在 workflow 中自动生成 GIHUBT_TOKEN，用于认证 workflow 的运行
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # 静态资源目录设置
+          publish_dir: ./pages
+          # 默认发布到 github-pages 分支上，可以指定特定的发布分支（不能选拉取代码的分支）
+          publish_branch: github-pages
+          full_commit_message: ${{ github.event.head_commit.message }}
+
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v2
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v1
+      #   with:
+      #     # Upload entire repository
+      #     path: "./pages"
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v1
