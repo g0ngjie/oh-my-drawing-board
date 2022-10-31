@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C ./packages/website dev",
-    "watch:lib": "pnpm -C ./packages/painter watch",
+    "dev:lib": "pnpm -C ./packages/painter-lib dev",
     "build": "pnpm -F \"./packages/**\" run build"
   },
   "keywords": [],
