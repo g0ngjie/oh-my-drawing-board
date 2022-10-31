@@ -1,0 +1,29 @@
+{
+  "name": "@drawing/painter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "main": "./dist/painter.umd.cjs",
+  "module": "./dist/painter.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/painter.js",
+      "require": "./dist/painter.umd.cjs"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "rimraf dist types && tsc && vite build"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.3",
+    "vite": "^3.1.3"
+  }
+}

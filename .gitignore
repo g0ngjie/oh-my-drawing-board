@@ -11,9 +11,7 @@ dist
 node_modules/
 .DS_Store
 
-.vscode
 pages
 
-lib
 types
 build
