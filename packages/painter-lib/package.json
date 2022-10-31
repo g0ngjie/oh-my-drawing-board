@@ -1,23 +1,26 @@
 {
-  "name": "painter-lib",
+  "name": "@drawing/painter",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "files": [
     "dist",
-    "index.d.ts"
+    "types"
   ],
-  "main": "./dist/counter.umd.cjs",
-  "module": "./dist/counter.js",
-  "types": "./index.d.ts",
+  "main": "./dist/painter.umd.cjs",
+  "module": "./dist/painter.js",
+  "types": "./types/index.d.ts",
   "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/counter.js",
-    "require": "./dist/counter.umd.cjs"
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/painter.js",
+      "require": "./dist/painter.umd.cjs"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "rimraf dist types && tsc && vite build"
   },
   "devDependencies": {
     "typescript": "^4.8.3",

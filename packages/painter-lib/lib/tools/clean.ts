@@ -1,5 +1,5 @@
 
-import clear from "assets/clear.svg";
+import clear from "/assets/clear.svg";
 import styl from "./clean.module.css";
 
 export default function (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {

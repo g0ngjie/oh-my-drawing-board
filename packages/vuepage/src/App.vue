@@ -1,19 +1,14 @@
 <script setup lang="ts">
 import draw from "@drawing/painter";
-import "@drawing/painter/lib/style.css";
+import "@drawing/painter/dist/style.css";
+import { ref, onMounted } from "vue";
 
 const container = ref();
 onMounted(() => {
-  console.log("[debug]123:", 123)
-  console.log("[debug]container.value:", container.value)
-  // createDraw(container.value)
-  console.log("[debug]draw:", draw)
-  // console.log("[debug]createDraw:", createDraw)
-})
+  draw(container.value);
+});
 </script>
 
 <template>
-  <div ref="container" class="w-100% h-100% bg-light-50">
-    asdf
-  </div>
+  <div ref="container" class="w-100% h-100% bg-light-50"></div>
 </template>

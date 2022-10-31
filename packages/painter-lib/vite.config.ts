@@ -3,9 +3,8 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   build: {
     lib: {
-      entry: './lib/main.ts',
-      name: 'Counter',
-      fileName: 'counter'
+      entry: './lib/index.ts',
+      name: 'lib',
     }
   }
 })

@@ -1,3 +1,4 @@
-import "@drawing/painter"
-import "@drawing/painter/lib/style.css"
+import createDraw from "@drawing/painter"
+import "@drawing/painter/dist/style.css"
 
+createDraw(document.body)
