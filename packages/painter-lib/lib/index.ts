@@ -15,7 +15,7 @@ export default function (container: HTMLElement) {
     let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
     ctx.lineWidth = 4;
     ctx.lineCap = "round";
-    ctx.strokeStyle = "#f52443";
+    ctx.strokeStyle = "#333333";
     let isDrawing = false;
     let last: number[];
 

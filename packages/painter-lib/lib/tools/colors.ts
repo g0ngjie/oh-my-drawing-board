@@ -6,19 +6,18 @@ export default function (ctx: CanvasRenderingContext2D) {
     colorContainer.className = styl.container
 
     const colorArray = [
-        "#f52443",
-        "#ffa502",
-        "#f9e459",
-        "#98bc67",
-        "#79d2d2",
-        "#91a7ff",
-        "#9fa0d7",
-        "#ff9393",
-        "#f5eeeb",
-        "#bdc3c7",
-        "#95a5a6",
-        "#7f8c8d",
+        "#333333",
         "#34495e",
+        "#7f8c8d",
+        "#f5eeeb",
+        "#ff9393",
+        "#9fa0d7",
+        "#91a7ff",
+        "#79d2d2",
+        "#98bc67",
+        "#f9e459",
+        "#ffa502",
+        "#f52443",
     ];
 
     for (let i = 0; i < colorArray.length; i++) {
