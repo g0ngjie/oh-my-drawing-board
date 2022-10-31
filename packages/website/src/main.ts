@@ -1,4 +1,6 @@
-import createDraw from "@drawing/painter"
-import "@drawing/painter/dist/style.css"
+import { createApp } from 'vue'
+import './style.css'
+import 'uno.css'
+import App from './App.vue'
 
-createDraw(document.body)
+createApp(App).mount('#app')
