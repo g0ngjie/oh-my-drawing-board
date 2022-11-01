@@ -8,17 +8,20 @@ type Cursor = 'pencil' | 'rubber'
 
 let currentCursor: Cursor = 'pencil'
 
+const btn = document.createElement('img')
+
 function getCurrentColor() {
     const ul = document.getElementById(COLORS_CONTAINER_ID) as HTMLUListElement
     const current = ul.querySelector('li.selected') as HTMLLIElement
     return current.style.background || '#333'
 }
 
-function drawEraser(
+export function drawEraser(
     ctx: CanvasRenderingContext2D,
     x: number,
     y: number
 ) {
+    if (currentCursor !== 'rubber') return
     const size = 20
     const xx = x - size / 2
     const yy = y - size / 2
@@ -32,7 +35,7 @@ function genLineStyle(
     cursor?: Cursor
 ) {
     if (cursor === 'rubber') {
-        ctx.strokeStyle = "rgba(0,0,0,0)";
+        ctx.strokeStyle = "rgba(255,255,255,0)";
         // ctx.lineWidth = 1;
         // ctx.strokeStyle = "#7f8c8d";
         return
@@ -66,8 +69,13 @@ function genRubberStyl(
     genLineStyle(ctx, 'rubber')
 }
 
-export default function (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
-    const btn = document.createElement('img')
+export function resetRubber(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
+    btn.src = pencil
+    genPencilStyl(ctx, canvas)
+}
+
+export function createRubber(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
+
     btn.className = styl.btn
     btn.width = 25
     btn.height = 25
@@ -79,13 +87,11 @@ export default function (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElemen
 
     canvas.onmousedown = function () {
         canvas.onmousemove = function (e: MouseEvent) {
-            if (currentCursor === 'rubber') {
-                drawEraser(
-                    ctx,
-                    e.x,
-                    e.y
-                );
-            }
+            drawEraser(
+                ctx,
+                e.x,
+                e.y
+            );
         };
     };
     canvas.onmouseup = function () {

@@ -1,7 +1,7 @@
 import { COLORS_CONTAINER_ID } from '../utils/consts';
 import styl from "./colors.module.css";
 
-export default function (ctx: CanvasRenderingContext2D) {
+export default function (ctx: CanvasRenderingContext2D, onCLickFn: () => void) {
     const colorContainer = document.createElement("ul")
 
     colorContainer.id = COLORS_CONTAINER_ID
@@ -47,6 +47,7 @@ export default function (ctx: CanvasRenderingContext2D) {
             selected.style.width = '25px';
             selected.style.height = '25px';
             ctx.strokeStyle = selected.style.background;
+            onCLickFn()
         }
     }
 
