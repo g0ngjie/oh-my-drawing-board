@@ -1,0 +1,19 @@
+.btn {
+  position: absolute;
+  top: 20px;
+  right: 70px;
+  opacity: 0.3;
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.rubberCursor {
+  cursor: url("/assets/rubber.svg") 0 24, url("/assets/rubber.svg"), auto;
+}
+
+.pencilCursor {
+  cursor: url("/assets/pencil.svg") 0 24, url("/assets/pencil.svg"), auto;
+}
