@@ -2,7 +2,7 @@ import styl from "./index.module.css"
 import {
     Colors as createColors,
     Clean as createClean,
-    Rubber as createRubber,
+    Rubber,
 } from "./tools/index";
 import { isMobile } from "./utils/index";
 
@@ -20,17 +20,20 @@ export default function (container: HTMLElement) {
     let isDrawing = false;
     let last: number[];
 
-    createColors(ctx)
+    createColors(ctx, () => {
+        Rubber.resetRubber(ctx, canvas)
+    })
     createClean(ctx, canvas)
-    createRubber(ctx, canvas)
+    Rubber.createRubber(ctx, canvas)
 
     if (isMobile) {
         canvas.ontouchstart = (e) => {
             last = [e.touches[0].clientX, e.touches[0].clientY];
-        };
-        canvas.ontouchmove = (e) => {
-            drawLine(last[0], last[1], e.touches[0].clientX, e.touches[0].clientY);
-            last = [e.touches[0].clientX, e.touches[0].clientY];
+            canvas.ontouchmove = (e) => {
+                drawLine(last[0], last[1], e.touches[0].clientX, e.touches[0].clientY);
+                last = [e.touches[0].clientX, e.touches[0].clientY];
+                Rubber.drawEraser(ctx, e.touches[0].clientX, e.touches[0].clientY)
+            };
         };
     } else {
         canvas.onpointermove = (e: PointerEvent) => {
