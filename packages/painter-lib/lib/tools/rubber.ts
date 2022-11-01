@@ -32,7 +32,7 @@ function genLineStyle(
     cursor?: Cursor
 ) {
     if (cursor === 'rubber') {
-        ctx.strokeStyle = "#fff";
+        ctx.strokeStyle = "rgba(255,255,255,0)";
         // ctx.lineWidth = 1;
         // ctx.strokeStyle = "#7f8c8d";
         return
