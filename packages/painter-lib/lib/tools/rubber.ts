@@ -19,7 +19,7 @@ function drawEraser(
     x: number,
     y: number
 ) {
-    const size = 14
+    const size = 20
     const xx = x - size / 2
     const yy = y - size / 2
     ctx.fillRect(xx, yy, size, size);
