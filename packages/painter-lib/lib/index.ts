@@ -1,5 +1,9 @@
 import styl from "./index.module.css"
-import { Colors as injectColors, Clean as injectClean } from "./tools/index";
+import {
+    Colors as createColors,
+    Clean as createClean,
+    Rubber as createRubber,
+} from "./tools/index";
 import { isMobile } from "./utils/index";
 
 export default function (container: HTMLElement) {
@@ -13,14 +17,12 @@ export default function (container: HTMLElement) {
 
 
     let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-    ctx.lineWidth = 4;
-    ctx.lineCap = "round";
-    ctx.strokeStyle = "#333333";
     let isDrawing = false;
     let last: number[];
 
-    injectColors(ctx)
-    injectClean(ctx, canvas)
+    createColors(ctx)
+    createClean(ctx, canvas)
+    createRubber(ctx, canvas)
 
     if (isMobile) {
         canvas.ontouchstart = (e) => {

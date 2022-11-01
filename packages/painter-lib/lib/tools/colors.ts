@@ -1,7 +1,10 @@
+import { COLORS_CONTAINER_ID } from '../utils/consts';
 import styl from "./colors.module.css";
 
 export default function (ctx: CanvasRenderingContext2D) {
     const colorContainer = document.createElement("ul")
+
+    colorContainer.id = COLORS_CONTAINER_ID
 
     colorContainer.className = styl.container
 
